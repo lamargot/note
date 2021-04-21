@@ -75,6 +75,7 @@
 documentFragment是一个保存多个element的容器对象（保存在内存）当更新其中的一个或者多个element时，页面不会更新。只有当documentFragment容器中保存的所有element更新后再将其插入到页面中才能更新页面。
 documentFragment用来批量更新
 列如将ul里面的li取出放到documentFragment,更新完毕后再将其插入到ul,一共有以下四步骤：
+
 	1. 创建documentFragment对象fragment
 	2. 取出ul中的所有子节点并保存到fragment
 	3. 更新fragment中的所有节点（li的内容）

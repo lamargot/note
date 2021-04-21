@@ -1,6 +1,7 @@
 # 浏览器的回流与重绘 (Reflow & Repaint)
 
-在讨论回流与重绘之前，我们要知道:
+在讨论回流与重绘之前，我们要知道:  
+
 	1. 浏览器使用流式布局模型 (Flow Based Layout)。
 	2. 浏览器会把HTML解析成DOM，把CSS解析成CSSOM，DOM和CSSOM合并就产生了Render Tree。
 	3. 有了RenderTree，我们就知道了所有节点的样式，然后计算他们在页面上的大小和位置，最后把节点绘制到页面上。
@@ -12,6 +13,7 @@
 ## 回流 (Reflow)
 当Render Tree中部分或全部元素的尺寸、结构、或某些属性发生改变时，浏览器重新渲染部分或全部文档的过程称为回流。
 会导致回流的操作：
+
 	* 页面首次渲染
 	* 浏览器窗口大小发生改变
 	* 元素尺寸或位置发生改变
@@ -41,6 +43,7 @@
 现代浏览器会对频繁的回流或重绘操作进行优化：
 浏览器会维护一个队列，把所有引起回流和重绘的操作放入队列中，如果队列中的任务数量或者时间间隔达到一个阈值的，浏览器就会将队列清空，进行一次批处理，这样可以把多次回流和重绘变成一次。
 当你访问以下属性或方法时，浏览器会立刻清空队列：
+
 	* clientWidth、clientHeight、clientTop、clientLeft  // clientWidth = width+左右padding
 	* offsetWidth、offsetHeight、offsetTop、offsetLeft    //offsetWidth = width + 左右padding + 左右boder 
 	* scrollWidth、scrollHeight、scrollTop、scrollLeft // 获取指定标签内容层的真实宽度（可视区域宽度+被隐藏区域宽度
